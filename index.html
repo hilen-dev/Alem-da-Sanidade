@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Além da Sanidade - Criar Ficha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <h1>Além da Sanidade</h1>
+  <p>Criar ficha de Investigador</p>
+
+  <form id="fichaForm">
+
+    <section class="card">
+      <h2>informações</h2>
+      
+      <input type="text" id="nome" placeholder="Nome" required>
+      <input type="text" id="jogador" placeholder="Jogador">
+      <input type="text" id="idade" placeholder="Idade" required>
+      <input type="text" id="sexo" placeholder="Sexo" requierd>
+      <input type="text" id="ocupacao" placeholder="Ocupação" requierd>
+    </section>
+
+    <section class="card">
+      <h2>Atributos</h2>
+
+      <div class="grid">
+    <input type="number" id="forca" placeholder="FOR">
+    <input type="number" id="constituicao" placeholder="CON">
+    <input type="number" id="tamanho" placeholder="TAM">
+    <input type="number" id="destreza" placeholder="DES">
+    <input type="number" id="aparencia" placeholder="APP">
+    <input type="number" id="inteligencia" placeholder="INT">
+    <input type="number" id="poder" placeholder="POD">
+    <input type="number" id="educacao" placeholder="EDU">
+    <input type="number" id="sorte" placeholder="SORTE">
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Status</h2>
+
+      <div class="grid">
+        <input type="number" id="sanidade" placeholder="SAN">
+        <input type="number" id="vida" placeholder="HP">
+        <input type="number" id="pontos_magia" placeholder="PTS DE MAGIA">
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Perícias</h2>
+      <div id="lista-de-pericias"></div>
+    </section>
+
+    <section class="card">
+      <h2 class="toggle">Lutar ▼</h2>
+
+      <div class ="skills hidden" id="grupo-lutar">
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="toggle">Armas-de-fogo ▼</h2>
+
+    <div class="skills hidden" id="grupo_armas">
+    </div>
+    </section>
+    
+    <button type="submit">Salvar Ficha</button>
+  </form>
+
+<script src="script.js"></script>
+  
+</body>
+</html>
