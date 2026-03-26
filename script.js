@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const lista = document.getElementById("lista-de-pericias");
   const grupoLutar = document.getElementById("grupo-lutar");
   const grupoArmas = document.getElementById("grupo-armas-de-fogo");
-  const grupoCiencia = document.getElementById("grupo-ciência");
+  const grupoCiencia = document.getElementById("grupo-ciencia");
   const grupoPilotar = document.getElementById("grupo-pilotar");
                                                
 
