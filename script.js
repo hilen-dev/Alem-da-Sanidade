@@ -2,27 +2,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function atualizarEsquiva() {
     const des = parseInt(document.getElementById("destreza").value) || 0;
-
     const esquiva = Math.floor(des / 2);
 
-    document.getElementById("esquiva").value = esquiva;
+    const campo = document.getElementById("esquiva");
 
-    document.getElementById("esquiva_half").textContent = Math.floor(esquiva / 2);
-    document.getElementById("esquiva_fifth").textContent = Math.floor(esquiva / 5);
+    if (campo) {
+      campo.value = esquiva;
+      document.getElementById("esquiva_half").textContent = Math.floor(esquiva / 2);
+      document.getElementById("esquiva_fifth").textContent = Math.floor(esquiva / 5);
+    }
   }
 
   function atualizarLinguaNativa() {
     const edu = parseInt(document.getElementById("educacao").value) || 0;
-
     const lingua = edu;
 
-    document.getElementById("lingua_nativa").value = lingua;
+    const campo = document.getElementById("lingua_nativa");
 
-    document.getElementById("lingua_nativa_half").textContent = Math.floor(lingua / 2);
-    document.getElementById("lingua_nativa_fifth").textContent = Math.floor(lingua / 5);
+    if (campo) {
+      campo.value = lingua;
+      document.getElementById("lingua_nativa_half").textContent = Math.floor(lingua / 2);
+      document.getElementById("lingua_nativa_fifth").textContent = Math.floor(lingua / 5);
+    }
   }
-  document.getElementById("destreza").addEventListener("input", atualizarEsquiva);
-  document.getElementById("educacao").addEventListener("input", atualizarLinguaNativa);
+
+  document.getElementById("destreza")?.addEventListener("input", atualizarEsquiva);
+  document.getElementById("educacao")?.addEventListener("input", atualizarLinguaNativa);
 
   atualizarEsquiva();
   atualizarLinguaNativa();
@@ -161,11 +166,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById(id + "_fifth").textContent = Math.floor(valor / 5);
   }
 
+ if(lista){
   pericias.forEach(p => criarPericia(p, lista));
+}
 
+if(grupoLutar){
   lutar.forEach(p => criarPericia(p, grupoLutar, "lutar_"));
+}
 
+if(grupoArmas){
   armas.forEach(p => criarPericia(p, grupoArmas, "arma_"));
+}
 
 if (grupoCiencia){
   ciencia.forEach(p => criarPericia(p, grupoCiencia, "ciencia_"));
