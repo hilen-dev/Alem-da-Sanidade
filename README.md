@@ -28,3 +28,7 @@ Sinta-se livre para abrir issues ou enviar pull requests.
 ## v0.1
 - Estrutura inicial do site
 - Primeiras fichas adicionadas
+
+
+-Projeto não oficial baseado em Call of Cthulhu.
+-Todos os direitos pertencem à Chaosium Inc.
