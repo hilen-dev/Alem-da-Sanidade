@@ -90,17 +90,17 @@ input[readonly]{
 button{
   width:100%;
   padding:10px;
-  background:#4a5a6a;
+  background:#3a4754;
   border:none;
   border-radius:8px;
-  color:#fff;
+  color:#ccc;
   font-weight:bold;
   cursor:pointer;
   margin-top:10px;
 }
 
 button:hover{
-  background:#5f7286;
+  background:#465766;
 }
 
 @media(max-width:768px) {
