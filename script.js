@@ -1,5 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  function atualizarEsquiva() {
+    const des = parseInt(document.getElementById("destreza").value) || 0;
+
+    const esquiva = Math.floor(des / 2);
+
+    document.getElementById("esquiva").value = esquiva;
+
+    document.getElementById("esquiva_half").textContent = Math.floor(esquiva / 2);
+    document.getElementById("esquiva_fifth").textContent = Math.floor(esquiva / 5);
+  }
+
+  function atualizarLinguaNativa() {
+    const edu = parseInt(document.getElementById("educacao").value) || 0;
+
+    const lingua = edu;
+
+    document.getElementById("lingua_nativa").value = lingua;
+
+    document.getElementById("lingua_nativa_half").textContent = Math.floor(lingua / 2);
+    document.getElementById("lingua_nativa_fifth").textContent = Math.floor(lingua / 5);
+  }
+  document.getElementById("destreza").addEventListener("input", atualizarEsquiva);
+  document.getElementById("educacao").addEventListener("input", atualizarLinguaNativa);
+
+  atualizarEsquiva();
+  atualizarLinguaNativa();
+
   const pericias = [
     { nome: "Antropologia", base: 1 },
     { nome: "Arqueologia", base: 1 },
@@ -13,12 +40,43 @@ document.addEventListener("DOMContentLoaded", () => {
     { nome: "Cavalgar", base: 5 },
     { nome: "Charme", base: 15 },
     { nome: "Chaveiro", base: 1 },
-    { nome: "
+    { nome: "Conhecomento", base: 1 },
+    { nome: "Consertos Elétricos", base: 1 },
+    { nome: "Consertos Mecânicos", base: 1 },
+    { nome: "Contabilidade", base: 5 },
+    { nome: "Demolição", base: 1},
+    { nome: "Direito", base: 5},
+    { nome: "Dirigir Automóveis", base: 20 },
+    { nome: "Disfarce", base: 5 },
+    { nome: "Eletrônica", base: 1 },
+    { nome: "Encontrar", base: 25 },
+    { nome: "Escalar", base: 20 },
+    { nome: "Escutar", base: 20 },
+    { nome: "Falsificação", base: 5 },
+    { nome: "Fotografia", base: 5 },
     { nome: "Furtividade", base: 20 },
-    { nome: "Psicologia", base: 10 },
+    { nome: "Hipnose", base: 1 },
+    { nome: "Historia", base: 5 },
+    { nome: "Intimidação", base: 15 },
+    { nome: "Lábia", base: 5 },
+    { nome: "Leitura Lábial", base: 1 },
+    { nome: "Lingua outra", base: 1 },
+    { nome: "Medicina", base: 1 },
+    { nome: "Mergulho", base: 1 },
+    { nome: "Meteorologia", base: 1 },
+    { nome: "Mundo Natual", base: 10 },
+    { nome: "Mythos de Cthulho", base: 0 },
+    { nome: "Natação", base: 20 },
+    { nome: "Navegação", base: 10 },
+    { nome: "Prestigitação", base: 10 },
     { nome: "Primeiros Socorros", base: 30 },
-    { nome: "Persuasão", base: 10 },
-    { nome: "Usar Bibliotecas", base: 20 }
+    { nome: "Psicologia", base: 10 },
+    { nome: "Rastrear", base: 10},
+    { nome: "Saltar", base: 20 },
+    { nome: "Sobrevivência", base: 10 },
+    { nome: "Treinar Animais", base: 5 },
+    { nome: "Usar Bibliotecas", base: 5 },
+    { nome: "Usar Computadores", base: 20 },
   ];
 
   const lutar = [
@@ -29,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { nome:"Lanças", base: 20 },
     { nome: "Machados", base: 15 },
     { nome: "Manguais", base: 10 },
-    { nome: "Motosserras", base: 10
+    { nome: "Motosserras", base: 10}
   ];
 
   const armas = [
@@ -41,15 +99,40 @@ document.addEventListener("DOMContentLoaded", () => {
     { nome: "Submetralhadoras", base: 15 }
   ];
 
+  const ciencia = [
+    { nome: "Biologia", base: 1 },
+    { nome: "Botânica", base: 1 },
+    { nome: "Ciência Forense", base: 1 },
+    { nome: "Criptografia", base: 1 },
+    { nome: "Engenharia", base: 1 },
+    { nome: "Farmacia", base: 1 },
+    { nome: "Física", base: 1 },
+    { nome: "Geologia", base: 1 },
+    { nome: "Matemática", base: 1 },
+    { nome: "Meteorologia", base: 1 },
+    { nome: "Química", base: 1},
+    { nome: "Zoologia", base: 1}
+  ];
+
+  const pilotar = [
+    { nome: "Pilotar Aeronaves", base: 1 },
+    { nome: "Pilotar Navios", base: 1 }
+]
+    
   const lista = document.getElementById("lista-de-pericias");
   const grupoLutar = document.getElementById("grupo-lutar");
-  const grupoArmas = document.getElementById("grupo_armas");
+  const grupoArmas = document.getElementById("grupo-armas-de-fogo");
+  const grupoCiencia = document.getElementById("grupo-ciência");
+  const grupoPilotar = document.getElementById("grupo-pilotar");
+                                               
 
   function criarPericia(p, container, prefixo = "") {
     const id = (prefixo + p.nome)
-      .toLowerCase()
-      .replace(/\s+/g, "_");
-
+  .toLowerCase()
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .replace(/[^a-z0-9]/g, "_");
+    
     const div = document.createElement("div");
     div.classList.add("skill");
 
@@ -83,6 +166,13 @@ document.addEventListener("DOMContentLoaded", () => {
   lutar.forEach(p => criarPericia(p, grupoLutar, "lutar_"));
 
   armas.forEach(p => criarPericia(p, grupoArmas, "arma_"));
+
+if (grupoCiencia){
+  ciencia.forEach(p => criarPericia(p, grupoCiencia, "ciencia_"));
+}
+if (grupoCiencia){
+  pilotar.forEach(p => criarPericia(p, grupoPilotar, "pilotar_"));
+  }
  document.querySelectorAll(".toggle").forEach(toggle => {
     toggle.addEventListener("click", () => {
       const content = toggle.nextElementSibling;
