@@ -13,7 +13,7 @@ body{
 
 h1{
   text-align:center;
-  color:#c2a85a;
+  color:#4a5a6a;
   margin-bottom:10px;
 }
 
@@ -24,7 +24,7 @@ p{
 }
 
 h2{
-  color:#c2a85a;
+  color:#4a5a6a;
   margin-bottom:10px;
 }
 
@@ -33,7 +33,7 @@ h2{
   padding:15px;
   margin-bottom:15px;
   border-radius:10px;
-  border-left:4px solid #c2a85a;
+  border-left:4px solid #4a5a6a;
   box-shadow:0 0 10px rgba(0,0,0,0.4);
 }
 
@@ -74,7 +74,7 @@ input[readonly]{
 .skill span:nth-child(3),
 .skill span:nth-child(4) {
   text-align:center;
-  color:#c2a85a;
+  color:#4a5a6a;
   font-weight:bold;
 }
 
@@ -90,7 +90,7 @@ input[readonly]{
 button{
   width:100%;
   padding:10px;
-  background:#c2a85a;
+  background:#4a5a6a;
   border:none;
   border-radius:8px;
   color:#111;
