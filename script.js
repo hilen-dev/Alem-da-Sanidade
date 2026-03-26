@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
 if (grupoCiencia){
   ciencia.forEach(p => criarPericia(p, grupoCiencia, "ciencia_"));
 }
-if (grupoCiencia){
+if (grupoPilotar){
   pilotar.forEach(p => criarPericia(p, grupoPilotar, "pilotar_"));
   }
  document.querySelectorAll(".toggle").forEach(toggle => {
