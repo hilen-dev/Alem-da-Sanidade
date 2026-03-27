@@ -1,36 +1,49 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  function atualizarEsquiva() {
-    const des = parseInt(document.getElementById("destreza").value) || 0;
-    const esquiva = Math.floor(des / 2);
+  function criarPericia(p, container, prefixo = "") {
+  const id = (prefixo + p.nome)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]/g, "_");
 
-    const campo = document.getElementById("esquiva");
+  const div = document.createElement("div");
+  div.classList.add("skill");
 
-    if (campo) {
-      campo.value = esquiva;
-      document.getElementById("esquiva_half").textContent = Math.floor(esquiva / 2);
-      document.getElementById("esquiva_fifth").textContent = Math.floor(esquiva / 5);
-    }
+  div.innerHTML = `
+    <span>${p.nome} ${p.base !== 0 ? `<small>(${p.base}%)</small>` : ""}</span>
+    <input type="number" id="${id}" ${p.auto ? "readonly" : ""} value="${p.base}">
+    <span id="${id}_half">—</span>
+    <span id="${id}_fifth">—</span>
+  `;
+
+  container.appendChild(div);
+
+  const input = div.querySelector("input");
+
+  if (!p.auto) {
+    input.addEventListener("input", () => atualizarPericia(id));
   }
 
-  function atualizarLinguaNativa() {
-    const edu = parseInt(document.getElementById("educacao").value) || 0;
-    const lingua = edu;
+  atualizarPericia(id);
 
-    const campo = document.getElementById("lingua_nativa");
-
-    if (campo) {
-      campo.value = lingua;
-      document.getElementById("lingua_nativa_half").textContent = Math.floor(lingua / 2);
-      document.getElementById("lingua_nativa_fifth").textContent = Math.floor(lingua / 5);
-    }
+  if (p.auto === "des") {
+    document.getElementById("destreza").addEventListener("input", () => {
+      const des = parseInt(document.getElementById("destreza").value) || 0;
+      input.value = Math.floor(des / 2);
+      atualizarPericia(id);
+    });
   }
 
-  document.getElementById("destreza")?.addEventListener("input", atualizarEsquiva);
-  document.getElementById("educacao")?.addEventListener("input", atualizarLinguaNativa);
-
-  atualizarEsquiva();
-  atualizarLinguaNativa();
+  if (p.auto === "edu") {
+    document.getElementById("educacao").addEventListener("input", () => {
+      const edu = parseInt(document.getElementById("educacao").value) || 0;
+      input.value = edu;
+      atualizarPericia(id);
+    });
+  }
+}
+      
 
   const pericias = [
     { nome: "Antropologia", base: 1 },
@@ -57,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { nome: "Encontrar", base: 25 },
     { nome: "Escalar", base: 20 },
     { nome: "Escutar", base: 20 },
+    { nome: "Esquivar", base: 0, auto: "des" },
     { nome: "Falsificação", base: 5 },
     { nome: "Fotografia", base: 5 },
     { nome: "Furtividade", base: 20 },
@@ -65,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { nome: "Intimidação", base: 15 },
     { nome: "Lábia", base: 5 },
     { nome: "Leitura Lábial", base: 1 },
+    { nome: "Língua Nativa", base: 0, auto: "edu" },
     { nome: "Lingua outra", base: 1 },
     { nome: "Medicina", base: 1 },
     { nome: "Mergulho", base: 1 },
@@ -130,34 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const grupoCiencia = document.getElementById("grupo-ciencia");
   const grupoPilotar = document.getElementById("grupo-pilotar");
                                                
-
-  function criarPericia(p, container, prefixo = "") {
-    const id = (prefixo + p.nome)
-  .toLowerCase()
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g, "")
-  .replace(/[^a-z0-9]/g, "_");
-    
-    const div = document.createElement("div");
-    div.classList.add("skill");
-
-    div.innerHTML = `
-      <span>${p.nome} <small>(${p.base}%)</small></span>
-      <input type="number" id="${id}" value="${p.base}">
-      <span id="${id}_half">—</span>
-      <span id="${id}_fifth">—</span>
-    `;
-
-    container.appendChild(div);
-
-    const input = div.querySelector("input");
-
-    input.addEventListener("input", () => {
-      atualizarPericia(id);
-    });
-
-    atualizarPericia(id);
-  }
 
   function atualizarPericia(id) {
     const valor = parseInt(document.getElementById(id).value) || 0;
