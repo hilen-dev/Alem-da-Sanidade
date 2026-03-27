@@ -28,20 +28,28 @@ document.addEventListener("DOMContentLoaded", () => {
   atualizarPericia(id);
 
   if (p.auto === "des") {
-    document.getElementById("destreza").addEventListener("input", () => {
-      const des = parseInt(document.getElementById("destreza").value) || 0;
-      input.value = Math.floor(des / 2);
-      atualizarPericia(id);
-    });
-  }
+  const des = parseInt(document.getElementById("destreza").value) || 0;
+  input.value = Math.floor(des / 2);
+  atualizarPericia(id);
+  
+  document.getElementById("destreza").addEventListener("input", () => {
+    const des = parseInt(document.getElementById("destreza").value) || 0;
+    input.value = Math.floor(des / 2);
+    atualizarPericia(id);
+  });
+}
 
   if (p.auto === "edu") {
-    document.getElementById("educacao").addEventListener("input", () => {
-      const edu = parseInt(document.getElementById("educacao").value) || 0;
-      input.value = edu;
-      atualizarPericia(id);
-    });
-  }
+  const edu = parseInt(document.getElementById("educacao").value) || 0;
+  input.value = edu;
+  atualizarPericia(id);
+  
+  document.getElementById("educacao").addEventListener("input", () => {
+    const edu = parseInt(document.getElementById("educacao").value) || 0;
+    input.value = edu;
+    atualizarPericia(id);
+  });
+}
 }
       
 
@@ -70,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { nome: "Encontrar", base: 25 },
     { nome: "Escalar", base: 20 },
     { nome: "Escutar", base: 20 },
-    { nome: "Esquivar", base: 0, auto: "des" },
+    { nome: "Esquiva", base: 0, auto: "des" },
     { nome: "Falsificação", base: 5 },
     { nome: "Fotografia", base: 5 },
     { nome: "Furtividade", base: 20 },
@@ -177,5 +185,4 @@ if (grupoPilotar){
       content.classList.toggle("hidden");
     });
   });
-
 });
