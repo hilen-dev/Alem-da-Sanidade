@@ -180,4 +180,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+document.getelEmentById("exportarJSON")?.addEventListener("click", () => {
+  const dados = {};
+
+document.querySelectorAll("input").forEach(input => { dados[input.id] = input.value;
+                                                    });
+  const json = JSON.stringfy(dados, null, 2);
+  const blob = new Blob([json], {type: "aplications/json"});
+    const url = URL.createObjectURL(blob);
+
+  const a = document.getElement("a");
+  a.href = url;
+  a.download = "ficha.json";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("exportarPDF")?.addEventListener("click", () => {
+  window.print();
+});
+  
 });
