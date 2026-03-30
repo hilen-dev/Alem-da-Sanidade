@@ -180,9 +180,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-const btnJSON = document.getElementById("exportarJSON");
+  const btnJSON = document.getElementById("exportarJSON");
 
-if (btnJSON) {
+  if (btnJSON) {
   btnJSON.addEventListener("click", () => {
     console.log("clicou JSON");
 
@@ -205,13 +205,12 @@ if (btnJSON) {
     URL.revokeObjectURL(url);
   });
 }
+  const btnPDF = document.getElementById("exportarPDF");
 
-const btnPDF = document.getElementById("exportarPDF");
-
-if (btnPDF) {
+  if (btnPDF) {
   btnPDF.addEventListener("click", () => {
     window.print();
   });
-}
+  }
 
 });
