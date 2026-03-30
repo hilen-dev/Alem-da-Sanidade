@@ -180,16 +180,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-document.getelEmentById("exportarJSON")?.addEventListener("click", () => {
+document.getelElementById("exportarJSON")?.addEventListener("click", () => {
   const dados = {};
 
 document.querySelectorAll("input").forEach(input => { dados[input.id] = input.value;
                                                     });
-  const json = JSON.stringfy(dados, null, 2);
-  const blob = new Blob([json], {type: "aplications/json"});
+  const json = JSON.stringify(dados, null, 2);
+  const blob = new Blob([json], {type: "applications/json"});
     const url = URL.createObjectURL(blob);
 
-  const a = document.getElement("a");
+  const a = document.createElement("a");
   a.href = url;
   a.download = "ficha.json";
   a.click();
