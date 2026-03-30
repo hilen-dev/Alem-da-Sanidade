@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-document.getelElementById("exportarJSON")?.addEventListener("click", () => {
+document.getElementById("exportarJSON")?.addEventListener("click", () => {
   const dados = {};
 
 document.querySelectorAll("input").forEach(input => { dados[input.id] = input.value;
