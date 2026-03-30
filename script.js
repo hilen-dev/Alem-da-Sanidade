@@ -116,6 +116,44 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarSecundarios();
   }
 
+  function rolarDado(tipo){
+    let resultado;
+
+    switch (tipo){
+      case "D4":
+        resultado = Math.floor(Math.random()*4) + 1;
+        break;
+        case "D6":
+        resultado = Math.floor(Math.random()*6) + 1;
+        break;
+        case "D8":
+        resultado = Math.floor(Math.random()*8) + 1;
+        break;
+        case "D10":
+        resultado = Math.floor(Math.random()*10) + 1;
+        break;
+        case "D12":
+        resultado = Math.floor(Math.random()*12) + 1;
+        break;
+        case "D20":
+        resultado = Math.floor(Math.random()*20) + 1;
+        break;
+        case "D100":
+        resultado = Math.floor(Math.random()*100) + 1;
+        break;
+    }
+
+    document.getElementById("resultadosdoDado").textContent = `Resultado:${resultado}`;
+  }
+
+  function rolarNDados(ptd, lados){
+    let total = 0;
+    for (let i = 0, i < qtd; i++){
+      total+=Math.floor(Math.random() * lados) + 1;
+    }
+    return total;
+  }
+  
   window.rolarAtributo = rolarAtributo;
 
   function atualizarSecundarios() {
