@@ -146,9 +146,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("resultadosdoDado").textContent = `Resultado:${resultado}`;
   }
 
-  function rolarNDados(ptd, lados){
+  window.rolarDado = rolarDado;
+  
+  function rolarNDados(qtd, lados){
     let total = 0;
-    for (let i = 0, i < qtd; i++){
+    for (let i = 0; i < qtd; i++){
       total+=Math.floor(Math.random() * lados) + 1;
     }
     return total;
