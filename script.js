@@ -203,7 +203,7 @@ document.querySelectorAll("input").forEach(input => {
     URL.revokeObjectURL(url);
 });
 
-document.getElementById("exportarPDF")/.addEventListener("click", () => window.print();
+document.getElementById("exportarPDF").addEventListener("click", () => window.print();
 });
   
 });
