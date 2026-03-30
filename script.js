@@ -181,18 +181,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 const btnJSON = document.getElementById("exportarJSON");
-  if (btnJSON){
-    btnJSON.addEventListener("click", () => {
-      console.log("clicou JSON");
-                                             
-  const dados = {};
 
-document.querySelectorAll("input").forEach(input => {
-  dados[input.id] = input.value;
-});
+if (btnJSON) {
+  btnJSON.addEventListener("click", () => {
+    console.log("clicou JSON");
+
+    const dados = {};
+
+    document.querySelectorAll("input").forEach(input => {
+      dados[input.id] = input.value;
+    });
+
     const json = JSON.stringify(dados, null, 2);
-    const blob = new Blob([json], {type: "application/json"});
-      const url = URL.createObjectURL(blob);
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
 
     const a = document.createElement("a");
     a.href = url;
@@ -201,10 +203,17 @@ document.querySelectorAll("input").forEach(input => {
     a.click();
 
     URL.revokeObjectURL(url);
-});
-  }
+  });
+}
 
-document.getElementById("exportarPDF").addEventListener("click", () => { window.print();
+const btnPDF = document.getElementById("exportarPDF");
+
+if (btnPDF) {
+  btnPDF.addEventListener("click", () => {
+    window.print();
+  });
+}
+
 });
   
 });
