@@ -1,20 +1,19 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  background: #0b0f14;
-  color: #e6e6e6;
-  font-family: "Segoe UI", Arial, sans-serif;
-  padding: 20px;
+:root{
+  -bg-main:#0b0f14;
+  -bg-card:#141a22;
+  -bg-input:#0c1117;
+  -primary:#8b0000;
+  -secondary:#b22222;
+  -text-main:#e6e6e6;
+  -text-soft:#aaa;
+  -border:#1a1f26;
 }
 
 h1{
   text-align:center;
-  color:#5a6a7a;
+  color:var(-primary);
   margin-bottom:10px;
+  letter-spacing:2px;
 }
 
 p{
@@ -24,17 +23,17 @@ p{
 }
 
 h2{
-  color:#5a6a7a;
+  color:var(-secondary);
   margin-bottom:10px;
 }
 
 .card{
-  background:#141a22;
+  background:var(-bg-card);
   padding:15px;
   margin-bottom:15px;
   border-radius:10px;
-  border-left:4px solid #4a5a6a;
-  box-shadow:0 0 10px rgba(0,0,0,0.4);
+  border-left:4px solid var(-primary);
+  box-shadow:0 0 15px rgba(0,0,0,0.6);
 }
 
 .grid{
@@ -50,6 +49,11 @@ input{
   border:1px solid #1a1f26;
   border-radius:6px;
   color:#ccc;
+}
+
+input:focus{
+  outline:none;
+  border-color:var(-primary);
 }
 
 input[readonly]{
@@ -74,7 +78,7 @@ input[readonly]{
 .skill span:nth-child(3),
 .skill span:nth-child(4) {
   text-align:center;
-  color:#4a5a6a;
+  color:var(-secondary);
   font-weight:bold;
 }
 
@@ -90,17 +94,46 @@ input[readonly]{
 button{
   width:100%;
   padding:10px;
-  background:#3a4754;
+  background:#2a2f36;
   border:none;
   border-radius:8px;
   color:#ccc;
   font-weight:bold;
   cursor:pointer;
   margin-top:10px;
+  transitor:0.2s;
 }
 
 button:hover{
-  background:#465766;
+  background:var(-primary);
+}
+
+.abas-menu{
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
+  flex-wrap:wrap;
+}
+
+.aba-btn{
+  background:#141a22;
+  border:1px solid #1a1f26;
+  padding:8px 12px;
+  color:#ccc;
+  cursor:pointer;
+  border-radius:6px;
+  transition:0.2s;
+}
+
+.aba-btn:hover{
+  background: var(--primary);
+}
+
+#resultadodosDado{
+  margin-top:10px;
+  front-size:18px;
+  color:var(-primary);
+  text-align:center;
 }
 
 @media(max-width:768px) {
