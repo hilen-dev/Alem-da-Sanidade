@@ -180,24 +180,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-document.getElementById("exportarJSON")?.addEventListener("click", () => {
+const btnJSON = document.getElementById("exportarJSON");
+  if (btnJSON){
+    btnJSON.addEventListener("click", () => {
+      console.log("clicou JSON");
+                                             
   const dados = {};
 
-document.querySelectorAll("input").forEach(input => { dados[input.id] = input.value;
-                                                    });
-  const json = JSON.stringify(dados, null, 2);
-  const blob = new Blob([json], {type: "applications/json"});
-    const url = URL.createObjectURL(blob);
+document.querySelectorAll("input").forEach(input => {
+  dados[input.id] = input.value;
+});
+    const json = JSON.stringify(dados, null, 2);
+    const blob = new Blob([json], {type: "application/json"});
+      const url = URL.createObjectURL(blob);
 
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "ficha.json";
-  a.click();
-  URL.revokeObjectURL(url);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "ficha.json";
+    document.body.appendChild(a);
+    a.click();
+
+    URL.revokeObjectURL(url);
 });
 
-document.getElementById("exportarPDF")?.addEventListener("click", () => {
-  window.print();
+document.getElementById("exportarPDF")/.addEventListenet("click", () => window.print();
 });
   
 });
