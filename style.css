@@ -1,160 +1,161 @@
-:root{
-  --bg-main:#0b0f14;
-  --bg-card:#141a22;
-  --bg-input:#0c1117;
-  --primary:#8b0000;
-  --secondary:#b22222;
-  --text-main:#e6e6e6;
-  --text-soft:#aaa;
-  --border:#1a1f26;
+:root {
+  --bg-main: #0b0f14;
+  --bg-card: #141a22;
+  --bg-input: #0c1117;
+  --primary: #8b0000;
+  --secondary: #b22222;
+  --text-main: #e6e6e6;
+  --text-soft: #aaa;
+  --border: #1a1f26;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  background: #0b0f14;
-  color: #e6e6e6;
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
   font-family: "Segoe UI", Arial, sans-serif;
   padding: 20px;
+  min-height: 100vh;
 }
 
-h1{
-  text-align:center;
-  color:var(--primary);
-  margin-bottom:10px;
-  letter-spacing:2px;
+h1 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
 }
 
-p{
-  text-align:center;
-  color:#aaa;
-  margin-bottom:20px;
+p {
+  text-align: center;
+  color: var(--text-soft);
+  margin-bottom: 20px;
 }
 
-h2{
-  color:var(--secondary);
-  margin-bottom:10px;
+h2 {
+  color: var(--secondary);
+  margin-bottom: 10px;
 }
 
-.card{
-  background:var(--bg-card);
-  padding:15px;
-  margin-bottom:15px;
-  border-radius:10px;
-  border-left:4px solid var(--primary);
-  box-shadow:0 0 15px rgba(0,0,0,0.6);
+.card {
+  background: var(--bg-card);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
-.grid{
+.grid {
   display: grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
-input{
-  width:100%;
-  padding:8px;
-  background:#0c1117;
-  border:1px solid #1a1f26;
-  border-radius:6px;
-  color:#ccc;
+input {
+  width: 100%;
+  padding: 8px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: #ccc;
 }
 
-input:focus{
-  outline:none;
-  border-color:var(--primary);
+input:focus {
+  outline: none;
+  border-color: var(--primary);
 }
 
-input[readonly]{
-  background:#0a0d12;
-  color:#999;
+input[readonly] {
+  background: #0a0d12;
+  color: #999;
 }
 
-.skill{
+.skill {
   display: grid;
-  grid-template-columns:2fr 1fr 0.5fr 0.5fr;
-  align-items:center;
-  gap:8px;
-  margin-bottom:6px;
-  padding:6px;
-  border-bottom:1px solid #222;
+  grid-template-columns: 2fr 1fr 0.5fr 0.5fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  padding: 6px;
+  border-bottom: 1px solid #222;
 }
 
-.skill span{
-  font-size:14px;
+.skill span {
+  font-size: 14px;
 }
 
 .skill span:nth-child(3),
 .skill span:nth-child(4) {
-  text-align:center;
-  color:var(-secondary);
-  font-weight:bold;
+  text-align: center;
+  color: var(--secondary);
+  font-weight: bold;
 }
 
-.toggle{
-  cursor:pointer;
-  user-select:none;
+.toggle {
+  cursor: pointer;
+  user-select: none;
 }
 
-.hidden{
-  display:none;
+.hidden {
+  display: none;
 }
 
-button{
-  width:100%;
-  padding:10px;
-  background:#2a2f36;
-  border:none;
-  border-radius:8px;
-  color:#ccc;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:10px;
-  transition:0.2s;
+button {
+  width: 100%;
+  padding: 10px;
+  background: #2a2f36;
+  border: none;
+  border-radius: 8px;
+  color: #ccc;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
 }
 
-button:hover{
-  background:var(--primary);
-}
-
-.abas-menu{
-  display:flex;
-  gap:10px;
-  margin-bottom:15px;
-  flex-wrap:wrap;
-}
-
-.aba-btn{
-  background:#141a22;
-  border:1px solid #1a1f26;
-  padding:8px 12px;
-  color:#ccc;
-  cursor:pointer;
-  border-radius:6px;
-  transition:0.2s;
-}
-
-.aba-btn:hover{
+button:hover {
   background: var(--primary);
 }
 
-#resultadodosDado{
-  margin-top:10px;
-  font-size:18px;
-  color:var(--primary);
-  text-align:center;
+.abas-menu {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
 }
 
-@media(max-width:768px) {
-  .grid{
-    grid-template-columns:repeat(2, 1fr);
+.aba-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  color: #ccc;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.aba-btn:hover {
+  background: var(--primary);
+}
+
+#resultadosdoDado {
+  margin-top: 10px;
+  font-size: 18px;
+  color: var(--primary);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .skill{
-    grid-template-columns:1.5fr 1fr 0.5fr 0.5fr;
+  .skill {
+    grid-template-columns: 1.5fr 1fr 0.5fr 0.5fr;
   }
 }
