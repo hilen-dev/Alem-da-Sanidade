@@ -9,6 +9,19 @@
   -border:#1a1f26;
 }
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background: #0b0f14;
+  color: #e6e6e6;
+  font-family: "Segoe UI", Arial, sans-serif;
+  padding: 20px;
+}
+
 h1{
   text-align:center;
   color:var(-primary);
