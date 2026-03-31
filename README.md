@@ -25,7 +25,7 @@ Sinta-se livre para abrir issues ou enviar pull requests.
 
 - # Changelog
 
-## v0.1
+## v0.2
 - Estrutura inicial do site
 - Primeiras fichas adicionadas
 
