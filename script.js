@@ -2,16 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".aba-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      const alvo = btn.dataset.aba;
+      const alvo = btn.id.replace("aba-", "");
 
-      document.querySelectorAll(".aba").forEach(sec => {
-        sec.classList.add("hidden");
-      });
-
-      document.getElementById(alvo)?.classList.remove("hidden");
-    });
+      document.querySelectorAll(".aba").forEach(sec => sec.classList.add("hidden"));
+    document.getElementById(alvo)?.classList.remove("hidden");
   });
-
+});
+  
   function atualizarPericia(id) {
     const input = document.getElementById(id);
     if (!input) return;
