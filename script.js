@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
   armas.forEach(p => criar(p, document.getElementById("grupo-armas")));
   ciencia.forEach(p => criar(p, document.getElementById("grupo-ciencia")));
   pilotar.forEach(p => criar(p, document.getElementById("grupo-pilotar")));
-  artes.forEach(p => criar(p, document.getElementById("grupo-artes")));
+  arte.forEach(p => criar(p, document.getElementById("grupo-arte")));
   linguas.forEach(p => criar(p, document.getElementById("grupo-linguas")));
   sobrevivencia.forEach(p => criar(p, document.getElementById("grupo-sobrevivencia")));
 
@@ -152,11 +152,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function rolarAtributo(id) {
-    const valor = (d6()+d6()+d6())*5;
+    let valor;
+
+    if (["tamanho", "inteligencia", "educacao"].includes(id)){
+      valor = (d6() + d6() + 6) * 5;
+    }
+    else {
+      valor = (d6() + d6() + d6()) * 5;
+  }
+
     document.getElementById(id).value = valor;
     atualizar();
   }
-
+    
   window.rolarAtributo = rolarAtributo;
 
   function atualizar() {
@@ -166,11 +174,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("vida").value = Math.floor((con + tam)/10);
 
-    const soma = forca + tam;
-
     let dano = "0";
-    if (soma > 164) dano = "+1d4";
+    let corpo = 0;
 
+    const soma = forca + tamanho;
+
+    if (soma <= 64){
+      dano = "-2";
+      corpo = -2;
+    } else if (soma <= 84){
+      dano = "-1";
+      corpo = -1;
+    } else if (soma <= 124){
+      dano = "0";
+      corpo = 0;
+    } else if (soma <= 164){
+      dano = "1d4";
+      corpo = 1;
+    } else if (soma <= 204){
+      dano = "1d6";
+      corpo = 2;
+    } else {
+      const extra = Math.celi((soma - 524) / 80);
+
+      dano = `+${1 + extra}d6`;
+      corpo = 2 + extra;
+    }
+    
     document.getElementById("dano_extra").value = dano;
   }
 
