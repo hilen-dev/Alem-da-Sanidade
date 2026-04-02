@@ -15,33 +15,35 @@
 
   <div class="card">
     <h2>Informações</h2>
-    <input type="text" id="nome" placeholder="Nome">
-    <input type="number" id="idade" placeholder="Idade">
+    <div class="grid">
+      <input id="nome" name="nome" placeholder="Nome">
+      <input id="idade" name="idade" placeholder="Idade">
+    </div>
   </div>
 
   <div class="card">
     <h2>Atributos</h2>
     <div class="grid">
-      <input id="forca" placeholder="FOR">
-      <input id="constituicao" placeholder="CON">
-      <input id="tamanho" placeholder="TAM">
-      <input id="destreza" placeholder="DES">
-      <input id="aparencia" placeholder="APA">
-      <input id="inteligencia" placeholder="INT">
-      <input id="poder" placeholder="POD">
-      <input id="educacao" placeholder="EDU">
+      <input id="forca" name="forca" placeholder="FOR">
+      <input id="constituicao" name="constituicao" placeholder="CON">
+      <input id="tamanho" name="tamanho" placeholder="TAM">
+      <input id="destreza" name="destreza" placeholder="DES">
+      <input id="aparencia" name="aparencia" placeholder="APA">
+      <input id="inteligencia" name="inteligencia" placeholder="INT">
+      <input id="poder" name="poder" placeholder="POD">
+      <input id="educacao" name="educacao" placeholder="EDU">
     </div>
   </div>
 
   <div class="card">
     <h2>Status</h2>
-    <p>HP: <span id="vida"></span></p>
+    <p>HP: <span id="vida">0</span></p>
   </div>
 
   <div class="card">
     <h2>Combate</h2>
-    <p>Dano: <span id="dano_extra"></span></p>
-    <p>Corpo: <span id="corpo"></span></p>
+    <p>Dano: <span id="dano_extra">0</span></p>
+    <p>Corpo: <span id="corpo">0</span></p>
   </div>
 
   <div class="card">
@@ -55,3 +57,4 @@
 
 <script src="script.js"></script>
 </body>
+</html>
