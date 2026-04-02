@@ -23,50 +23,49 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(div);
   }
 
- const pericias = [
-  { nome: "Antropologia", base: 1 },
-  { nome: "Arqueologia", base: 1 },
-  { nome: "Arremessar", base: 20 },
-  { nome: "Avaliação", base: 5 },
-  { nome: "Cavalgar", base: 5 },
-  { nome: "Charme", base: 15 },
-  { nome: "Chaveiro", base: 1 },
-  { nome: "Consertos Elétricos", base: 10 },
-  { nome: "Consertos Mecânicos", base: 10 },
-  { nome: "Contabilidade", base: 5 },
-  { nome: "Direito", base: 5 },
-  { nome: "Dirigir Automóveis", base: 20 },
-  { nome: "Disfarce", base: 5 },
-  { nome: "Eletrônica", base: 1 },
-  { nome: "Encontrar", base: 25 },
-  { nome: "Escalar", base: 20 },
-  { nome: "Escutar", base: 20 },
-  { nome: "Esquiva", base: 0, auto: "des" },
-  { nome: "Furtividade", base: 20 },
-  { nome: "História", base: 5 },
-  { nome: "Intimidação", base: 15 },
-  { nome: "Lábia", base: 5 },
-  { nome: "Língua Nativa", base: 0, auto: "edu" },
-  { nome: "Medicina", base: 1 },
-  { nome: "Mergulho", base: 1 },
-  { nome: "Mundo Natural", base: 10 },
-  { nome: "Mythos de Cthulhu", base: 0 },
-  { nome: "Natação", base: 20 },
-  { nome: "Navegação", base: 10 },
-  { nome: "Nível de Crédito", base: 0 },
-  { nome: "Ocultismo", base: 5 },
-  { nome: "Operar Maquinário Pesado", base: 1 },
-  { nome: "Persuasão", base: 10 },
-  { nome: "Prestidigitação", base: 10 },
-  { nome: "Primeiros Socorros", base: 30 },
-  { nome: "Psicanálise", base: 1 },
-  { nome: "Psicologia", base: 10 },
-  { nome: "Rastrear", base: 10 },
-  { nome: "Saltar", base: 20 },
-  { nome: "Usar Bibliotecas", base: 20 },
-  { nome: "Usar Computadores", base: 5 },
-  { nome: "Treinar Animais", base: 5 }
-];
+
+  const pericias = [
+    { nome: "Antropologia", base: 1 },
+    { nome: "Arqueologia", base: 1 },
+    { nome: "Arremessar", base: 20 },
+    { nome: "Avaliação", base: 5 },
+    { nome: "Cavalgar", base: 5 },
+    { nome: "Charme", base: 15 },
+    { nome: "Chaveiro", base: 1 },
+    { nome: "Consertos Elétricos", base: 10 },
+    { nome: "Consertos Mecânicos", base: 10 },
+    { nome: "Contabilidade", base: 5 },
+    { nome: "Direito", base: 5 },
+    { nome: "Dirigir Automóveis", base: 20 },
+    { nome: "Disfarce", base: 5 },
+    { nome: "Eletrônica", base: 1 },
+    { nome: "Encontrar", base: 25 },
+    { nome: "Escalar", base: 20 },
+    { nome: "Escutar", base: 20 },
+    { nome: "Furtividade", base: 20 },
+    { nome: "História", base: 5 },
+    { nome: "Intimidação", base: 15 },
+    { nome: "Lábia", base: 5 },
+    { nome: "Medicina", base: 1 },
+    { nome: "Mergulho", base: 1 },
+    { nome: "Mundo Natural", base: 10 },
+    { nome: "Mythos de Cthulhu", base: 0 },
+    { nome: "Natação", base: 20 },
+    { nome: "Navegação", base: 10 },
+    { nome: "Nível de Crédito", base: 0 },
+    { nome: "Ocultismo", base: 5 },
+    { nome: "Operar Maquinário Pesado", base: 1 },
+    { nome: "Persuasão", base: 10 },
+    { nome: "Prestidigitação", base: 10 },
+    { nome: "Primeiros Socorros", base: 30 },
+    { nome: "Psicanálise", base: 1 },
+    { nome: "Psicologia", base: 10 },
+    { nome: "Rastrear", base: 10 },
+    { nome: "Saltar", base: 20 },
+    { nome: "Usar Bibliotecas", base: 20 },
+    { nome: "Usar Computadores", base: 5 },
+    { nome: "Treinar Animais", base: 5 }
+  ];
 
   const lutar = [
   { nome: "Briga", base: 25 },
@@ -116,13 +115,13 @@ document.addEventListener("DOMContentLoaded", () => {
 ];
 
   const linguas = [
-  { nome: "Língua (Outra)", base: 1 }
-];
+    { nome: "Língua (Outra)", base: 1 }
+  ];
 
   const sobrevivencia = [
-  { nome: "Sobrevivência", base: 10 }
-];
-  
+    { nome: "Sobrevivência", base: 10 }
+  ];
+
   pericias.forEach(p => criar(p, document.getElementById("lista-de-pericias")));
   lutar.forEach(p => criar(p, document.getElementById("grupo-lutar")));
   armas.forEach(p => criar(p, document.getElementById("grupo-armas")));
@@ -138,10 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+
   function rolarDado(tipo) {
     const lados = parseInt(tipo.replace("D", ""));
     const resultado = Math.floor(Math.random() * lados) + 1;
-
     document.getElementById("resultado").textContent = resultado;
   }
 
@@ -156,15 +155,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (["tamanho", "inteligencia", "educacao"].includes(id)){
       valor = (d6() + d6() + 6) * 5;
-    }
-    else {
+    } else {
       valor = (d6() + d6() + d6()) * 5;
-  }
+    }
 
     document.getElementById(id).value = valor;
     atualizar();
   }
-    
+
   window.rolarAtributo = rolarAtributo;
 
   function atualizar() {
@@ -174,34 +172,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("vida").value = Math.floor((con + tam)/10);
 
+    const soma = forca + tam;
+
     let dano = "0";
     let corpo = 0;
 
-    const soma = forca + tamanho;
-
-    if (soma <= 64){
-      dano = "-2";
-      corpo = -2;
-    } else if (soma <= 84){
-      dano = "-1";
-      corpo = -1;
-    } else if (soma <= 124){
-      dano = "0";
-      corpo = 0;
-    } else if (soma <= 164){
-      dano = "1d4";
-      corpo = 1;
-    } else if (soma <= 204){
-      dano = "1d6";
-      corpo = 2;
-    } else {
-      const extra = Math.celi((soma - 524) / 80);
-
+    if (soma <= 64){ dano = "-2"; corpo = -2; }
+    else if (soma <= 84){ dano = "-1"; corpo = -1; }
+    else if (soma <= 124){ dano = "0"; corpo = 0; }
+    else if (soma <= 164){ dano = "+1d4"; corpo = 1; }
+    else if (soma <= 204){ dano = "+1d6"; corpo = 2; }
+    else {
+      const extra = Math.ceil((soma - 204) / 80);
       dano = `+${1 + extra}d6`;
       corpo = 2 + extra;
     }
-    
+
     document.getElementById("dano_extra").value = dano;
+    document.getElementById("corpo").value = corpo;
   }
 
 });
