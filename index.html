@@ -9,128 +9,49 @@
 
 <h1>Além da Sanidade</h1>
 
-<div class="abas-menu">
-  <button class="aba-btn" id="aba-info">Informações</button>
-  <button class="aba-btn" id="aba-atributos">Atributos</button>
-  <button class="aba-btn" id="aba-pericias">Perícias</button>
-  <button class="aba-btn" id="aba-status">Status</button>
-  <button class="aba-btn" id="aba-combate">Combate</button>
-  <button class="aba-btn" id="aba-rolagens">Rolagens</button>
-</div>
-
 <form>
 
-<section class="aba" id="info">
+<section id="ficha">
+
   <div class="card">
     <h2>Informações</h2>
     <input type="text" id="nome" placeholder="Nome">
     <input type="number" id="idade" placeholder="Idade">
   </div>
-</section>
 
-<section class="aba hidden" id="atributos">
   <div class="card">
     <h2>Atributos</h2>
     <div class="grid">
       <input id="forca" placeholder="FOR">
-      <button type="button" onclick="rolarAtributo('forca')">🎲</button>
-
       <input id="constituicao" placeholder="CON">
-      <button type="button" onclick="rolarAtributo('constituicao')">🎲</button>
-
       <input id="tamanho" placeholder="TAM">
-      <button type="button" onclick="rolarAtributo('tamanho')">🎲</button>
-
       <input id="destreza" placeholder="DES">
-      <button type="button" onclick="rolarAtributo('destreza')">🎲</button>
-
       <input id="aparencia" placeholder="APA">
-      <button type="button" onclick="rolarAtributo('aparencia')">🎲</button>
-
       <input id="inteligencia" placeholder="INT">
-      <button type="button" onclick="rolarAtributo('inteligencia')">🎲</button>
-
       <input id="poder" placeholder="POD">
-      <button type="button" onclick="rolarAtributo('poder')">🎲</button>
-
       <input id="educacao" placeholder="EDU">
-      <button type="button" onclick="rolarAtributo('educacao')">🎲</button>
-
-      <input id="sorte" placeholder="SOR">
-      <button type="button" onclick="rolarAtributo('sorte')">🎲</button>
     </div>
   </div>
-</section>
 
-<section class="aba hidden" id="pericias">
-  <div class="card">
-    <h2>Perícias</h2>
-    <div id="lista-de-pericias"></div>
-  </div>
-
-  <div class="card">
-    <h2 class="toggle">Lutar ▼</h2>
-    <div id="grupo-lutar" class="hidden"></div>
-  </div>
-
-  <div class="card">
-    <h2 class="toggle">Armas ▼</h2>
-    <div id="grupo-armas" class="hidden"></div>
-  </div>
-
-  <div class="card">
-    <h2 class="toggle">Ciência ▼</h2>
-    <div id="grupo-ciencia" class="hidden"></div>
-  </div>
-
-  <div class="card">
-    <h2 class="toggle">Pilotar ▼</h2>
-    <div id="grupo-pilotar" class="hidden"></div>
-  </div>
-
-  <div class="card">
-    <h2 class="toggle">Arte & Ofício ▼</h2>
-    <div id="grupo-arte" class="hidden"></div>
-  </div>
-
-  <div class="card">
-    <h2 class="toggle">Línguas ▼</h2>
-    <div id="grupo-linguas" class="hidden"></div>
-  </div>
-
-  <div class="card">
-    <h2 class="toggle">Sobrevivência ▼</h2>
-    <div id="grupo-sobrevivencia" class="hidden"></div>
-  </div>
-
-</section>
-
-<section class="aba hidden" id="status">
   <div class="card">
     <h2>Status</h2>
-    <input id="vida" placeholder="HP">
+    <p>HP: <span id="vida"></span></p>
   </div>
-</section>
 
-<section class="aba hidden" id="combate">
   <div class="card">
     <h2>Combate</h2>
-    <input id="dano_extra" placeholder="Dano Extra" readonly>
-    <input id="corpo" placeholder="Corpo" readonly>
-    <input id="movimento" placeholder="MOV">
+    <p>Dano: <span id="dano_extra"></span></p>
+    <p>Corpo: <span id="corpo"></span></p>
   </div>
-</section>
 
-<section class="aba hidden" id="rolagens">
   <div class="card">
-    <h2>Rolagens</h2>
-    <button type="button" onclick="rolarDado('D100')">D100</button>
-    <p id="resultado">---</p>
+    <h2>Perícias</h2>
+    <div id="pericias-container"></div>
   </div>
+
 </section>
 
 </form>
 
 <script src="script.js"></script>
 </body>
-</html>
