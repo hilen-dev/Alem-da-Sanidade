@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const wrapper = document.createElement("div");
 
     wrapper.innerHTML = `
-      <h3 class="toggle">${nome} ▼</h3>
-      <div class="hidden grupo"></div>
+      <div class="toggle">${nome} ▼</div>
+      <div class="grupo hidden"></div>
     `;
 
     const grupo = wrapper.querySelector(".grupo");
@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(wrapper);
   }
 
-  // PERÍCIAS SIMPLES
   const pericias = [
     { nome: "Antropologia", base: 1 },
     { nome: "Arqueologia", base: 1 },
@@ -85,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   pericias.forEach(p => criarPericia(p.nome, p.base));
 
-  // GRUPOS
   criarGrupo("Lutar", [
     { nome: "Briga", base: 25 },
     { nome: "Chicotes", base: 5 },
@@ -141,14 +139,18 @@ document.addEventListener("DOMContentLoaded", () => {
     { nome: "Sobrevivência", base: 10 }
   ]);
 
-  // TOGGLE
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("toggle")) {
-      e.target.nextElementSibling.classList.toggle("hidden");
+      const grupo = e.target.nextElementSibling;
+      grupo.classList.toggle("hidden");
+
+      e.target.textContent =
+        grupo.classList.contains("hidden")
+          ? e.target.textContent.replace("▲", "▼")
+          : e.target.textContent.replace("▼", "▲");
     }
   });
 
-  // STATUS
   function atualizar() {
     const forca = +document.getElementById("forca").value || 0;
     const con = +document.getElementById("constituicao").value || 0;
@@ -177,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   ["forca", "constituicao", "tamanho"].forEach(id => {
-    document.getElementById(id)?.addEventListener("input", atualizar);
+    document.getElementById(id).addEventListener("input", atualizar);
   });
 
 });
