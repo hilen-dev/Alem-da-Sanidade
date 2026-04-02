@@ -1,29 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const botoes = document.querySelectorAll(".aba-btn");
-  const abas = document.querySelectorAll(".aba");
+  const container = document.getElementById("pericias-container");
 
-  botoes.forEach(btn => {
-    btn.addEventListener("click", () => {
-      abas.forEach(a => a.classList.add("hidden"));
-
-      const id = btn.id.replace("aba-", "");
-      document.getElementById(id)?.classList.remove("hidden");
-    });
-  });
-
-  function criar(p, container) {
+  function criarPericia(nome, valor) {
     const div = document.createElement("div");
+    div.classList.add("pericia");
 
     div.innerHTML = `
-      ${p.nome} (${p.base}%)
-      <input value="${p.base}">
+      <span>${nome}</span>
+      <span>${valor}%</span>
     `;
 
     container.appendChild(div);
   }
 
+  function criarGrupo(nome, lista) {
+    const div = document.createElement("div");
 
+    div.innerHTML = `
+      <h3 class="toggle">${nome} ▼</h3>
+      <div class="hidden grupo"></div>
+    `;
+
+    const grupo = div.querySelector(".grupo");
+
+    lista.forEach(p => {
+      const item = document.createElement("div");
+      item.classList.add("pericia");
+      item.innerHTML = `<span>${p.nome}</span><span>${p.base}%</span>`;
+      grupo.appendChild(item);
+    });
+
+    container.appendChild(div);
+  }
+
+  // PERÍCIAS SIMPLES
   const pericias = [
     { nome: "Antropologia", base: 1 },
     { nome: "Arqueologia", base: 1 },
@@ -67,7 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
     { nome: "Treinar Animais", base: 5 }
   ];
 
-  const lutar = [
+  pericia.forEach(p => criarPericia(p[0], p[1]));
+
+  criarGrupo(Lutar = [
   { nome: "Briga", base: 25 },
   { nome: "Chicotes", base: 5 },
   { nome: "Espadas", base: 20 },
@@ -76,18 +89,18 @@ document.addEventListener("DOMContentLoaded", () => {
   { nome: "Machados", base: 15 },
   { nome: "Manguais", base: 10 },
   { nome: "Motosserras", base: 10 }
-];
+]);
   
- const armas = [
+ criarGrupo(Armas = [
   { nome: "Pistolas", base: 20 },
   { nome: "Rifles/Espingardas", base: 25 },
   { nome: "Submetralhadoras", base: 15 },
   { nome: "Metralhadoras", base: 10 },
   { nome: "Lança-Chamas", base: 10 },
   { nome: "Arcos", base: 15 }
-];
+]);
   
-  const ciencia = [
+  criarGrupo(Ciência = [
   { nome: "Biologia", base: 1 },
   { nome: "Botânica", base: 1 },
   { nome: "Ciência Forense", base: 1 },
@@ -100,77 +113,41 @@ document.addEventListener("DOMContentLoaded", () => {
   { nome: "Meteorologia", base: 1 },
   { nome: "Química", base: 1 },
   { nome: "Zoologia", base: 1 }
-];
+]);
 
-  const pilotar = [
+  criarGrupo(Pilotar = [
   { nome: "Pilotar Aeronaves", base: 1 },
   { nome: "Pilotar Navios", base: 1 }
-];
+]);
 
-  const arte = [
+  criarGrupo(Arte = [
   { nome: "Atuação", base: 5 },
   { nome: "Belas Artes", base: 5 },
   { nome: "Falsificação", base: 5 },
   { nome: "Fotografia", base: 5 }
-];
+]);
 
-  const linguas = [
+  criarGrupo(Línguas = [
     { nome: "Língua (Outra)", base: 1 }
-  ];
+  ]);
 
-  const sobrevivencia = [
+ criarGrupo(Sorevivência= [
     { nome: "Sobrevivência", base: 10 }
-  ];
+  ]);
 
-  pericias.forEach(p => criar(p, document.getElementById("lista-de-pericias")));
-  lutar.forEach(p => criar(p, document.getElementById("grupo-lutar")));
-  armas.forEach(p => criar(p, document.getElementById("grupo-armas")));
-  ciencia.forEach(p => criar(p, document.getElementById("grupo-ciencia")));
-  pilotar.forEach(p => criar(p, document.getElementById("grupo-pilotar")));
-  arte.forEach(p => criar(p, document.getElementById("grupo-arte")));
-  linguas.forEach(p => criar(p, document.getElementById("grupo-linguas")));
-  sobrevivencia.forEach(p => criar(p, document.getElementById("grupo-sobrevivencia")));
-
-  document.querySelectorAll(".toggle").forEach(t => {
-    t.addEventListener("click", () => {
-      t.nextElementSibling.classList.toggle("hidden");
-    });
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("toggle")) {
+      e.target.nextElementSibling.classList.toggle("hidden");
+    }
   });
 
-
-  function rolarDado(tipo) {
-    const lados = parseInt(tipo.replace("D", ""));
-    const resultado = Math.floor(Math.random() * lados) + 1;
-    document.getElementById("resultado").textContent = resultado;
-  }
-
-  window.rolarDado = rolarDado;
-
-  function d6() {
-    return Math.floor(Math.random() * 6) + 1;
-  }
-
-  function rolarAtributo(id) {
-    let valor;
-
-    if (["tamanho", "inteligencia", "educacao"].includes(id)){
-      valor = (d6() + d6() + 6) * 5;
-    } else {
-      valor = (d6() + d6() + d6()) * 5;
-    }
-
-    document.getElementById(id).value = valor;
-    atualizar();
-  }
-
-  window.rolarAtributo = rolarAtributo;
-
+  // SISTEMA DE STATUS
   function atualizar() {
     const forca = +document.getElementById("forca").value || 0;
-    const tam = +document.getElementById("tamanho").value || 0;
     const con = +document.getElementById("constituicao").value || 0;
+    const tam = +document.getElementById("tamanho").value || 0;
 
-    document.getElementById("vida").value = Math.floor((con + tam)/10);
+    document.getElementById("vida").textContent = Math.floor((con + tam) / 10);
 
     const soma = forca + tam;
 
@@ -188,8 +165,12 @@ document.addEventListener("DOMContentLoaded", () => {
       corpo = 2 + extra;
     }
 
-    document.getElementById("dano_extra").value = dano;
-    document.getElementById("corpo").value = corpo;
+    document.getElementById("dano_extra").textContent = dano;
+    document.getElementById("corpo").textContent = corpo;
   }
+
+  ["forca", "constituicao", "tamanho"].forEach(id => {
+    document.getElementById(id)?.addEventListener("input", atualizar);
+  });
 
 });
