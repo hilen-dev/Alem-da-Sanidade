@@ -15,23 +15,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function criarGrupo(nome, lista) {
-    const div = document.createElement("div");
+    const wrapper = document.createElement("div");
 
-    div.innerHTML = `
+    wrapper.innerHTML = `
       <h3 class="toggle">${nome} ▼</h3>
       <div class="hidden grupo"></div>
     `;
 
-    const grupo = div.querySelector(".grupo");
+    const grupo = wrapper.querySelector(".grupo");
 
     lista.forEach(p => {
       const item = document.createElement("div");
       item.classList.add("pericia");
-      item.innerHTML = `<span>${p.nome}</span><span>${p.base}%</span>`;
+
+      item.innerHTML = `
+        <span>${p.nome}</span>
+        <span>${p.base}%</span>
+      `;
+
       grupo.appendChild(item);
     });
 
-    container.appendChild(div);
+    container.appendChild(wrapper);
   }
 
   // PERÍCIAS SIMPLES
@@ -78,70 +83,72 @@ document.addEventListener("DOMContentLoaded", () => {
     { nome: "Treinar Animais", base: 5 }
   ];
 
-  pericia.forEach(p => criarPericia(p[0], p[1]));
+  pericias.forEach(p => criarPericia(p.nome, p.base));
 
-  criarGrupo(Lutar = [
-  { nome: "Briga", base: 25 },
-  { nome: "Chicotes", base: 5 },
-  { nome: "Espadas", base: 20 },
-  { nome: "Garrote", base: 15 },
-  { nome: "Lanças", base: 20 },
-  { nome: "Machados", base: 15 },
-  { nome: "Manguais", base: 10 },
-  { nome: "Motosserras", base: 10 }
-]);
-  
- criarGrupo(Armas = [
-  { nome: "Pistolas", base: 20 },
-  { nome: "Rifles/Espingardas", base: 25 },
-  { nome: "Submetralhadoras", base: 15 },
-  { nome: "Metralhadoras", base: 10 },
-  { nome: "Lança-Chamas", base: 10 },
-  { nome: "Arcos", base: 15 }
-]);
-  
-  criarGrupo(Ciência = [
-  { nome: "Biologia", base: 1 },
-  { nome: "Botânica", base: 1 },
-  { nome: "Ciência Forense", base: 1 },
-  { nome: "Criptografia", base: 1 },
-  { nome: "Engenharia", base: 1 },
-  { nome: "Farmácia", base: 1 },
-  { nome: "Física", base: 1 },
-  { nome: "Geologia", base: 1 },
-  { nome: "Matemática", base: 1 },
-  { nome: "Meteorologia", base: 1 },
-  { nome: "Química", base: 1 },
-  { nome: "Zoologia", base: 1 }
-]);
+  // GRUPOS
+  criarGrupo("Lutar", [
+    { nome: "Briga", base: 25 },
+    { nome: "Chicotes", base: 5 },
+    { nome: "Espadas", base: 20 },
+    { nome: "Garrote", base: 15 },
+    { nome: "Lanças", base: 20 },
+    { nome: "Machados", base: 15 },
+    { nome: "Manguais", base: 10 },
+    { nome: "Motosserras", base: 10 }
+  ]);
 
-  criarGrupo(Pilotar = [
-  { nome: "Pilotar Aeronaves", base: 1 },
-  { nome: "Pilotar Navios", base: 1 }
-]);
+  criarGrupo("Armas", [
+    { nome: "Pistolas", base: 20 },
+    { nome: "Rifles/Espingardas", base: 25 },
+    { nome: "Submetralhadoras", base: 15 },
+    { nome: "Metralhadoras", base: 10 },
+    { nome: "Lança-Chamas", base: 10 },
+    { nome: "Arcos", base: 15 }
+  ]);
 
-  criarGrupo(Arte = [
-  { nome: "Atuação", base: 5 },
-  { nome: "Belas Artes", base: 5 },
-  { nome: "Falsificação", base: 5 },
-  { nome: "Fotografia", base: 5 }
-]);
+  criarGrupo("Ciencia", [
+    { nome: "Biologia", base: 1 },
+    { nome: "Botânica", base: 1 },
+    { nome: "Ciência Forense", base: 1 },
+    { nome: "Criptografia", base: 1 },
+    { nome: "Engenharia", base: 1 },
+    { nome: "Farmácia", base: 1 },
+    { nome: "Física", base: 1 },
+    { nome: "Geologia", base: 1 },
+    { nome: "Matemática", base: 1 },
+    { nome: "Meteorologia", base: 1 },
+    { nome: "Química", base: 1 },
+    { nome: "Zoologia", base: 1 }
+  ]);
 
-  criarGrupo(Línguas = [
+  criarGrupo("Pilotar", [
+    { nome: "Pilotar Aeronaves", base: 1 },
+    { nome: "Pilotar Navios", base: 1 }
+  ]);
+
+  criarGrupo("Arte & Oficio", [
+    { nome: "Atuação", base: 5 },
+    { nome: "Belas Artes", base: 5 },
+    { nome: "Falsificação", base: 5 },
+    { nome: "Fotografia", base: 5 }
+  ]);
+
+  criarGrupo("Linguas", [
     { nome: "Língua (Outra)", base: 1 }
   ]);
 
- criarGrupo(Sorevivência= [
+  criarGrupo("Sobrevivencia", [
     { nome: "Sobrevivência", base: 10 }
   ]);
 
+  // TOGGLE
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("toggle")) {
       e.target.nextElementSibling.classList.toggle("hidden");
     }
   });
 
-  // SISTEMA DE STATUS
+  // STATUS
   function atualizar() {
     const forca = +document.getElementById("forca").value || 0;
     const con = +document.getElementById("constituicao").value || 0;
