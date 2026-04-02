@@ -2,138 +2,103 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Além da Sanidade - Criar Ficha</title>
+  <title>Além da Sanidade</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Além da Sanidade</h1>
-  <div class="abas-menu">
-    <button class="button aba-btn" id="aba-info">Informações</button>
-<button class="button aba-btn" id="aba-atributos">Atributos</button>
-<button class="button aba-btn" id="aba-pericias">Perícias</button>
-<button class="button aba-btn" id="aba-status">Status</button>
-<button class="button aba-btn" id="aba-combate">Combate</button>
-<button class="button aba-btn" id="aba-rolagens">Rolagens</button>
+<h1>Além da Sanidade</h1>
+
+<div class="abas-menu">
+  <button class="aba-btn" id="aba-info">Informações</button>
+  <button class="aba-btn" id="aba-atributos">Atributos</button>
+  <button class="aba-btn" id="aba-pericias">Perícias</button>
+  <button class="aba-btn" id="aba-status">Status</button>
+  <button class="aba-btn" id="aba-combate">Combate</button>
+  <button class="aba-btn" id="aba-rolagens">Rolagens</button>
+</div>
+
+<form>
+
+<section class="aba" id="info">
+  <div class="card">
+    <h2>Informações</h2>
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="number" id="idade" placeholder="Idade">
+  </div>
+</section>
+
+<section class="aba hidden" id="atributos">
+  <div class="card">
+    <h2>Atributos</h2>
+    <div class="grid">
+      <input id="forca" placeholder="FOR">
+      <button type="button" onclick="rolarAtributo('forca')">🎲</button>
+
+      <input id="constituicao" placeholder="CON">
+      <button type="button" onclick="rolarAtributo('constituicao')">🎲</button>
+
+      <input id="tamanho" placeholder="TAM">
+      <button type="button" onclick="rolarAtributo('tamanho')">🎲</button>
+
+      <input id="destreza" placeholder="DES">
+      <button type="button" onclick="rolarAtributo('destreza')">🎲</button>
+
+      <input id="educacao" placeholder="EDU">
+      <button type="button" onclick="rolarAtributo('educacao')">🎲</button>
+    </div>
+  </div>
+</section>
+
+<section class="aba hidden" id="pericias">
+  <div class="card">
+    <h2>Perícias</h2>
+    <div id="lista-de-pericias"></div>
   </div>
 
-  <form id="fichaForm">
+  <div class="card">
+    <h2 class="toggle">Lutar ▼</h2>
+    <div id="grupo-lutar" class="hidden"></div>
+  </div>
 
-    <section class="aba hidden" id="info">
-      <div class="card">
-        <h2>Informações</h2>
-      
-      <input type="text" id="nome" placeholder="Nome" required>
-      <input type="text" id="jogador" placeholder="Jogador">
-      <input type="number" id="idade" placeholder="Idade" required>
-      <input type="text" id="sexo" placeholder="Sexo" required>
-      <input type="text" id="ocupacao" placeholder="Ocupação" required>
-      </div>
-    </section>
+  <div class="card">
+    <h2 class="toggle">Armas ▼</h2>
+    <div id="grupo-armas" class="hidden"></div>
+  </div>
 
-    <section class="aba hidden" id="atributos">
-      <div class="card">
-        <h2>Atributos</h2>
+  <div class="card">
+    <h2 class="toggle">Ciência ▼</h2>
+    <div id="grupo-ciencia" class="hidden"></div>
+  </div>
 
-      <div class="grid">
-    <input type="number" id="forca" placeholder="FOR" min="15" max="99">
-          <button type="button" onclick="rolarAtributo('forca')">🎲</button>
+</section>
 
-          <input type="number" id="constituicao" placeholder="CON" min="15" max="99">
-          <button type="button" onclick="rolarAtributo('constituicao')">🎲</button>
+<section class="aba hidden" id="status">
+  <div class="card">
+    <h2>Status</h2>
+    <input id="vida" placeholder="HP">
+  </div>
+</section>
 
-          <input type="number" id="tamanho" placeholder="TAM" min="15" max="99">
-          <button type="button" onclick="rolarAtributo('tamanho')">🎲</button>
+<section class="aba hidden" id="combate">
+  <div class="card">
+    <h2>Combate</h2>
+    <input id="dano_extra" placeholder="Dano Extra" readonly>
+    <input id="corpo" placeholder="Corpo" readonly>
+    <input id="movimento" placeholder="MOV">
+  </div>
+</section>
 
-          <input type="number" id="destreza" placeholder="DES" min="15" max="99">
-          <button type="button" onclick="rolarAtributo('destreza')">🎲</button>
+<section class="aba hidden" id="rolagens">
+  <div class="card">
+    <h2>Rolagens</h2>
+    <button type="button" onclick="rolarDado('D100')">D100</button>
+    <p id="resultado">---</p>
+  </div>
+</section>
 
-          <input type="number" id="aparencia" placeholder="APP" min="15" max="99">
-          <button type="button" onclick="rolarAtributo('aparencia')">🎲</button>
-
-          <input type="number" id="inteligencia" placeholder="INT" min="15" max="99">
-          <button type="button" onclick="rolarAtributo('inteligencia')">🎲</button>
-
-          <input type="number" id="poder" placeholder="POD" min="15" max="99">
-          <button type="button" onclick="rolarAtributo('poder')">🎲</button>
-
-          <input type="number" id="educacao" placeholder="EDU" min="15" max="99">
-          <button type="button" onclick="rolarAtributo('educacao')">🎲</button>
-
-          <input type="number" id="sorte" placeholder="SORTE" min="15" max="99">
-          <button type="button" onclick="rolarAtributo(`sorte`)">🎲</button>
-      </div>
-      </div>
-    </section>
-
-    <section class="aba hidden" id="status">
-      <div class="card">
-        <h2>Status</h2>
-
-        <input type="number" id="sanidade" placeholder="SAN">
-        <input type="number" id="vida" placeholder="HP">
-        <input type="number" id="pontos_magia" placeholder="MP">
-      </div>
-    </section>
-
-    <section class="aba hidden" id="pericias">
-      <div class="card">
-        <h2>Perícias Gerais</h2>
-      <div id="lista-de-pericias"></div>
-      </div>
-
-     <div class="card">
-      <h2 class="toggle">Ciência ▼</h2>
-       <div class="skills hidden" id="grupo-ciencia"></div>
-     </div>
-
-    <div class="card">
-      <h2 class="toggle">Pilotar ▼</h2>
-      <div class="skills hidden" id ="grupo-pilotar"></div>
-    </div>
-    
-    <div class="card">
-      <h2 class="toggle">Lutar ▼</h2>
-      <div class ="skills hidden" id="grupo-lutar"></div>
-    </div>
-
-    <div class="card">
-      <h2 class="toggle">Armas-de-fogo ▼</h2>
-    <div class="skills hidden" id="grupo-armas-de-fogo"></div>
-    </div>
-    </section>
-
-    <section class="aba hidden" id="combate">
-      <div class="card">
-        <h2>Combate</h2>
-
-        <input type="number" placeholder="HP atual" min="0">
-        <input type="number" placeholder="HP maximo" min="3" max="20">
-        <input type="text" id="dano_extra" placeholder="Dano Extra" readonly>
-        <input type="text" id="corpo" placeholder="Corpo" readonly>
-        <input type="text" id="movimento" placeholder="MOV">
-      </div>
-    </section>
-
-    <section class="aba hidden" id="rolagens">
-      <div class="card">
-        <h2>Rolagens</h2>
-
-        <button type="button" onclick="rolarDado('D4')">D4</button>
-        <button type="button" onclick="rolarDado('D6')">D6</button>
-        <button type="button" onclick="rolarDado('D8')">D8</button>
-        <button type="button" onclick="rolarDado('D10')">D10</button>
-        <button type="button" onclick="rolarDado('D12')">D12</button>
-        <button type="button" onclick="rolarDado('D20')">D20</button>
-        <button type="button" onclick="rolarDado('D100')">D100</button>
-
-        <p id="resultadosdoDado">Resultados</p>
-      </div>
-    </section>
-    
-  </form>
+</form>
 
 <script src="script.js"></script>
-  
 </body>
 </html>
