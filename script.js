@@ -159,7 +159,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const tam = +document.getElementById("tamanho").value || 0;
 
     document.getElementById("vida").textContent = Math.floor((con + tam)/10);
-
+    document.getElementById("sanidade").textContent.value(poder);
+    document.getElementById("pm").textContent = Math.floor((pod)/5);
+    
+    
     const soma = forca + tam;
 
     let dano = "0";
