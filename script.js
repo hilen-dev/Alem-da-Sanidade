@@ -55,9 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const fifth = div.querySelector(".fifth");
 
       function atualizar() {
-        const val = parseInt(input.value) || 0;
-        half.textContent = Math.floor(val / 2);
-        fifth.textContent = Math.floor(val / 5);
+        const extra = parseInt(input.value) || 0;
+        const total = base + extra;
+ 
+        half.textContent = Math.floor(total / 2);
+        fifth.textContent = Math.floor(total / 5);
       }
 
       input.addEventListener("input", atualizar);
@@ -154,13 +156,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   function atualizarStatus() {
-    const forca = +document.getElementById("forca").value || 0;
-    const con = +document.getElementById("constituicao").value || 0;
-    const tam = +document.getElementById("tamanho").value || 0;
+  const forca = +document.getElementById("forca").value || 0;
+  const con = +document.getElementById("constituicao").value || 0;
+  const tam = +document.getElementById("tamanho").value || 0;
+  const des = +document.getElementById("destreza").value || 0;
+  const apa = +document.getElementById("aparencia").value || 0;
+  const int = +document.getElementById("inteligencia").velue || 0;
+  const pod = +document.getElementById("poder").value || 0;
+  const edu = +document.getElementById("educacao").value || 0;
+  
 
-    document.getElementById("vida").textContent = Math.floor((con + tam)/10);
-    document.getElementById("sanidade").textContent.value(poder);
-    document.getElementById("pm").textContent = Math.floor((pod)/5);
+  document.getElementById("vida").textContent = Math.floor((con + tam)/10);
+  document.getElementById("sanidade").textContent = pod;
+  document.getElementById("pm").textContent = Math.floor(pod / 5);
     
     
     const soma = forca + tam;
