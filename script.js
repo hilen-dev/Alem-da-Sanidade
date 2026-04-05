@@ -55,8 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const fifth = div.querySelector(".fifth");
 
       function atualizar() {
-        const extra = parseInt(input.value) || 0;
-        const total = base + extra;
+      const base = p.base;
+      const extra = parseint(input.value)||0;
+      const total = base + extra;
  
         half.textContent = Math.floor(total / 2);
         fifth.textContent = Math.floor(total / 5);
@@ -161,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const tam = +document.getElementById("tamanho").value || 0;
   const des = +document.getElementById("destreza").value || 0;
   const apa = +document.getElementById("aparencia").value || 0;
-  const int = +document.getElementById("inteligencia").velue || 0;
+  const int = +document.getElementById("inteligencia").value || 0;
   const pod = +document.getElementById("poder").value || 0;
   const edu = +document.getElementById("educacao").value || 0;
   
