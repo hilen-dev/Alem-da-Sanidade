@@ -50,6 +50,7 @@ h2 {
 .card h2 {
   border-bottom:1px solid #222;
   padding-bottom:5px;
+}
 
 .card:hover {
   transform: translateY(-2px);
@@ -86,20 +87,29 @@ input:focus {
   gap: 10px;
 }
 
-.pericia {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 10px;
-  border-bottom: 1px solid #222;
-  font-size: 14px;
-
+.skill{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:6px;
+  padding:8px;
+  border-radius:6px;
+  border-bottom:1px solid #222;
   transition: 0.2s;
 }
 
-.pericia:hover {
-  background: rgba(255, 255, 255, 0.04);
+.skill:hover{
+  background:rgba(139, 0, 0, 0.15);
 }
 
+.skill span: first-child{
+  color:#ccc;
+}
+
+.skill span:last-child{
+  color:var(--primary);
+  font-weght:bold;
+}
+  
 .grupo {
   margin-top: 5px;
   padding-left: 10px;
@@ -110,7 +120,7 @@ input:focus {
   cursor: pointer;
   user-select: none;
   padding: 8px;
-  front-weight:bold;
+  font-weight:bold;
   border-radius: 6px;
   border-left:3px solid var(--primary)
   transition: 0.2s;
@@ -123,6 +133,7 @@ input:focus {
 
 .hidden {
   display: none;
+  
 }
 
 p {
