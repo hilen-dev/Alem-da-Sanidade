@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Além da Sanidade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Além da Sanidade</h1>
+
+<form>
+
+<section id="ficha">
+
+  <div class="card">
+    <h2>Informações</h2>
+    <div class="grid">
+      <div class="campo"><label>Nome</label><input id="nome" name="nome"></div>
+      <div class="campo"><label>Idade</label><input id="idade" name="idade"></div>
+      <div class="campo"><label>Ocupação</label><input id="ocupacao" name="ocupacao"></div>
+      <div class="campo"><label>Sexo</label><input id="sexo" name="sexo"></div>
+      <div class="campo"><label>Residência</label><input id="residencia" name="residencia"></div>
+      <div class="campo"><label>Nascimento</label><input id="nascimento" name="nascimento"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Atributos</h2>
+    <div class="grid">
+      <div class="campo"><label>FOR</label><input id="forca" name="forca"></div>
+      <div class="campo"><label>CON</label><input id="constituicao" name="constituicao"></div>
+      <div class="campo"><label>TAM</label><input id="tamanho" name="tamanho"></div>
+      <div class="campo"><label>DES</label><input id="destreza" name="destreza"></div>
+      <div class="campo"><label>APA</label><input id="aparencia" name="aparencia"></div>
+      <div class="campo"><label>INT</label><input id="inteligencia" name="inteligencia"></div>
+      <div class="campo"><label>POD</label><input id="poder" name="poder"></div>
+      <div class="campo"><label>EDU</label><input id="educacao" name="educacao"></div>
+      <div class="campo"><label>SOR</label><input id="sorte" name="sorte"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Status</h2>
+    <p>HP: <span id="vida">0</span></p>
+    <p>SAN: <span id="sanidade">0</span></p>
+    <p>PM: <span id="pm">0</span></p>
+  </div>
+
+  <div class="card">
+    <h2>Combate</h2>
+    <p>Dano: <span id="dano_extra">0</span></p>
+    <p>Corpo: <span id="corpo">0</span></p>
+  </div>
+
+  <div class="card">
+    <h2>Perícias</h2>
+    <div id="pericias-container"></div>
+    <script type="module" src="script.js"></script>
+  </div>
+
+</section>
+
+</form>
+
+</body>
+</html>
