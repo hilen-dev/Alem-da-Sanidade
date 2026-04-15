@@ -30,5 +30,9 @@ Sinta-se livre para abrir issues ou enviar pull requests.
 - Primeiras fichas adicionadas
 
 
--Projeto não oficial baseado em Call of Cthulhu.
--Todos os direitos pertencem à Chaosium Inc.
+- Projeto não oficial baseado em Call of Cthulhu.
+- Todos os direitos pertencem à Chaosium Inc.
+
+## Link do site
+
+https://hilen-dev.github.io/Alem-da-Sanidade/
